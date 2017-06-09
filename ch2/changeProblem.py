@@ -46,8 +46,25 @@ def makeChange():
     print('Dimes: ' + str(dimes))
     print('Nickles: ' + str(nickles))
     print('Pennies: ' + str(pennies))
-      
+
+# makeChange()
+
+# generalize this example to accomodate different denominations
+
+# currency in cents
 
 
+usCurrency = [25, 10, 5, 1]
+euCurrency = [20, 10, 5, 2, 1]
 
-#makeChange()
+
+def betterChange(price, cash, denomList):
+    remainder = cash - price
+    specificCounts = []
+    for k in range(0, len(denomList)):
+        specificCounts.append(0)
+        specificCounts[k] += int(remainder/denomList[k])
+        remainder -= specificCounts[k]*denomList[k]
+    # clearly print the count of each denomination used
+    for d in range(0, len(specificCounts)):
+        print(str(denomList[d]) + "'s: " + str(specificCounts[d]))

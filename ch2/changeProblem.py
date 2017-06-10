@@ -12,7 +12,13 @@
 
 # makeChange()
 
+from itertools import combinations
 
+def testCombo():
+    for combo in combinations(usCurrency, 2):
+        print(combo)
+
+    
 def makeChange():
     price = 46.45
     cash = 50.00
@@ -68,3 +74,29 @@ def betterChange(price, cash, denomList):
     # clearly print the count of each denomination used
     for d in range(0, len(specificCounts)):
         print(str(denomList[d]) + "'s: " + str(specificCounts[d]))
+
+
+# betterChange does not always guarantee the smallest number of coins
+# we can address this with a brute force method that compares different solutions
+
+
+def BruteForceChange(price, cash, denomList):
+    remainder = cash - price
+    smallestCoinCount = float('inf')
+    limitList = []
+    specificCounts = []
+    for i in denomList:
+        specificCounts.append(0)
+        limitList.append(0)
+        limitList[i] = int(remainder/denomList[i] + 1)
+    print(limitList)
+    for i in denomList:
+        for j in range(0, int(remainder/denomList[i] + 1)):
+            specificCounts[i] = j
+            print(specificCounts)
+ 
+def loopTest(digits):
+    for i in range(0, digits):
+        return(str(i))
+
+

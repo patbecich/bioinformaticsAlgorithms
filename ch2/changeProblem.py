@@ -31,7 +31,7 @@ def makeChange():
     while (change >= 0.01):
         change = round(change, 2)
         print('remaining change ' + str(change))
-        if change >= 1.00:
+        if change >= 1.00:      # 
             dollars += 1
             change -= 1.00
         elif change >= .25:
@@ -100,3 +100,26 @@ def loopTest(digits):
         return(str(i))
 
 
+# https://stackoverflow.com/questions/1208118/using-numpy-to-build-an-array-of-all-combinations-of-two-arrays
+import numpy
+a = numpy.array([1,2,3])
+b = numpy.array([5,9])
+c = numpy.array([10,11,12])
+abc = [a,b,c]
+# combos = numpy.stack(numpy.meshgrid(*abc))
+
+# def cartesian(*arrays):
+#     mesh = numpy.meshgrid(*arrays)  # standard numpy meshgrid
+#     dim = len(mesh)  # number of dimensions
+#     elements = mesh[0].size  # number of elements, any index will do
+#     flat = numpy.concatenate(mesh).ravel()  # flatten the whole meshgrid
+#     reshape = numpy.reshape(flat, (dim, elements)).T  # reshape and transpose
+#     return reshape
+
+# combos = cartesian(abc)
+
+# https://stackoverflow.com/questions/29714771/combinatoric-cartesian-product-of-numpy-arrays-without-iterators-and-or-loops
+
+from sklearn.utils.extmath import cartesian
+
+combos = cartesian(abc)

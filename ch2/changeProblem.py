@@ -85,18 +85,25 @@ def BruteForceChange(price, cash, denomList):
     smallestCoinCount = float('inf')
     limitList = []
     specificCounts = []
-    for i in denomList:
+    for i in range(0, len(denomList)):
         specificCounts.append(0)
         limitList.append(0)
-        limitList[i] = int(remainder/denomList[i] + 1)
+        limitList[i] = int(remainder/denomList[i])
     print(limitList)
-    for i in denomList:
-        for j in range(0, int(remainder/denomList[i] + 1)):
-            specificCounts[i] = j
+    for i in range(0, limitList[0]):
+        specificCounts[0] = i
+        for j in range(0, limitList[1]):
+            specificCounts[1] = j
             print(specificCounts)
- 
+
+
 def loopTest(digits):
-    for i in range(0, digits):
-        return(str(i))
+    for j in range(0, 10):
+        if(digits == 0):
+            break
+        print(str(j) + str()
 
 
+def testPrint(denomList):
+    for i in range(0, len(denomList)):
+        print(i)
